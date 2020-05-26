@@ -11,10 +11,12 @@ Oak middleware for error handling and logging
 
   ```ts
   import { errorHandlerMiddleware } from "https://raw.githubusercontent.com/halvardssm/oak-middleware-error-logger/master/mod.ts"
+  import { Middleware } from "https://deno.land/x/oak/mod.ts";
+
   
   const app = new Application();
   
-  app.use(errorHandlerMiddleware({
+  app.use(errorHandlerMiddleware<Middleware>({
     fallback: (err, ctx) => {
       throw new Error(err as string);
     },
@@ -27,6 +29,8 @@ Oak middleware for error handling and logging
 
   ```ts
   import { errorHandlerMiddleware, logger } from "https://raw.githubusercontent.com/halvardssm/oak-middleware-error-logger/master/mod.ts"
+  import { RouterMiddleware } from "https://deno.land/x/oak/mod.ts";
+
   
   const app = new Application();
   
