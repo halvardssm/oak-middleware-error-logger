@@ -2,7 +2,7 @@
 
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/halvardssm/oak-middleware-error-logger/ci/master?style=flat-square&logo=github)](https://github.com/halvardssm/oak-middleware-error-logger/actions?query=branch%3Amaster+workflow%3ACI)
 [![(Deno)](https://img.shields.io/badge/deno-v1.1.3-green.svg?style=flat-square&logo=deno)](https://deno.land)
-[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/raw.githubusercontent.com/halvardssm/oak-middleware-error-logger/master/mod.ts)
+[![deno doc](https://img.shields.io/badge/deno-doc-blue.svg?style=flat-square&logo=deno)](https://doc.deno.land/https/raw.githubusercontent.com/halvardssm/oak-middleware-logger/master/mod.ts)
 
 Oak middleware for error handling and logging
 
