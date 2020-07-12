@@ -1,18 +1,18 @@
 import { Context, HttpError, Middleware, RouterMiddleware } from "../deps.ts";
 
-export type errorCallback = (
+export type ErrorCallback = (
   err: HttpError | string | number,
   ctx: Context,
-) => void;
+) => Promise<void>;
 
-export type errorHandlerMiddlewareOptions = {
-  fallback: errorCallback; // Fallback function for handling all errors which are not handled by the cases
-  cases?: Record<number | string, errorCallback>; // Record of all cases with a callback to handle errors
+export type ErrorHandlerMiddlewareOptions = {
+  fallback: ErrorCallback; // Fallback function for handling all errors which are not handled by the cases
+  cases?: Record<number | string, ErrorCallback>; // Record of all cases with a callback to handle errors
 };
 
 export const errorHandlerMiddleware = <
   T extends RouterMiddleware | Middleware = Middleware,
->(options: errorHandlerMiddlewareOptions): T => {
+>(options: ErrorHandlerMiddlewareOptions): T => {
   const { cases, fallback } = options;
 
   const core: Middleware = async (ctx, next) => {
