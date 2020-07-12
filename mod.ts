@@ -1,11 +1,11 @@
 export {
-  errorCallback,
+  ErrorCallback,
   errorHandlerMiddleware,
-  errorHandlerMiddlewareOptions,
+  ErrorHandlerMiddlewareOptions,
 } from "./src/errorMiddleware.ts";
 export {
   logger,
-  loggerOptions,
-  loggerReturnT,
+  LoggerOptions,
+  LoggerReturnT,
   loggerSync,
 } from "./src/logger.ts";

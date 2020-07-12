@@ -1,6 +1,6 @@
 import { dirname } from "../deps.ts";
 
-export type loggerOptions = {
+export type LoggerOptions = {
   logInfo: string | object; // Log text or object
   fileName?: string; // Custom filename, will default to `.log/mm-yyyy.txt` e.g `.log/04-2020.txt`
   prepend?: string; // Custom prepend for log line, will default to iso date e.g. `2020-05-25T17:38:42.483Z: `
@@ -9,21 +9,21 @@ export type loggerOptions = {
   customFormatting?: (log: string) => string; // Add custom formatting to logInfo
 };
 
-export type mkdirArgsT = [
+export type MkdirArgsT = [
   string,
   Deno.MkdirOptions | undefined,
 ];
-export type writeFileArgsT = [
+export type WriteFileArgsT = [
   string,
   Uint8Array,
   Deno.WriteFileOptions | undefined,
 ];
-export type loggerReturnT = [
-  mkdirArgsT,
-  writeFileArgsT,
+export type LoggerReturnT = [
+  MkdirArgsT,
+  WriteFileArgsT,
 ];
 
-const loggerCore = (options: loggerOptions) => {
+const loggerCore = (options: LoggerOptions) => {
   const date = new Date();
   const encoder = new TextEncoder();
   const logData = typeof options.logInfo === "string"
@@ -46,15 +46,15 @@ const loggerCore = (options: loggerOptions) => {
   return [[dirname(name), mkdirOptions], [name, data, writeFileOptions]];
 };
 
-export const logger = async (options: loggerOptions): Promise<void> => {
-  const args = loggerCore(options) as loggerReturnT;
+export const logger = async (options: LoggerOptions): Promise<void> => {
+  const args = loggerCore(options) as LoggerReturnT;
 
   await Deno.mkdir(...args[0]);
   await Deno.writeFile(...args[1]);
 };
 
-export const loggerSync = (options: loggerOptions): void => {
-  const args = loggerCore(options) as loggerReturnT;
+export const loggerSync = (options: LoggerOptions): void => {
+  const args = loggerCore(options) as LoggerReturnT;
 
   Deno.mkdirSync(...args[0]);
   Deno.writeFileSync(...args[1]);
