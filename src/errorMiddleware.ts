@@ -20,9 +20,9 @@ export const errorHandlerMiddleware = <
       await next();
     } catch (err) {
       if (cases?.[err.status]) {
-        cases[err.status](err, ctx);
+        await cases[err.status](err, ctx);
       } else {
-        fallback(err, ctx);
+        await fallback(err, ctx);
       }
     }
   };
