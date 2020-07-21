@@ -1,7 +1,7 @@
 import {
   assertThrowsAsync,
   createHttpError,
-  ErrorStatus,
+  Status,
   RouterContext,
 } from "../deps.ts";
 import { errorHandlerMiddleware } from "../mod.ts";
@@ -16,7 +16,7 @@ const mockNext = () => {
 
 const mockNextHttp = () => {
   return new Promise<void>(() => {
-    throw createHttpError(ErrorStatus.BadRequest, "test");
+    throw createHttpError(Status.BadRequest, "test");
   });
 };
 
@@ -38,14 +38,14 @@ const tests = [
     },
   },
   {
-    name: "Throws in with ErrorStatus",
+    name: "Throws in with Status",
     async fn() {
       const mw = errorHandlerMiddleware({
         fallback: (err, ctx) => {
           throw new Error(err as string);
         },
         cases: {
-          [ErrorStatus.BadRequest]: (err, ctx) => {
+          [Status.BadRequest]: (err, ctx) => {
             throw new Error(err as string);
           },
         },

@@ -1,15 +1,15 @@
 export {
   assertEquals,
-  assertStrContains,
+  assertStringContains,
   assertThrowsAsync,
-} from "https://deno.land/std@0.53.0/testing/asserts.ts";
-export { dirname } from "https://deno.land/std@v0.53.0/path/mod.ts";
-export { createHttpError } from "https://deno.land/x/oak@v4.0.0/httpError.ts";
+} from "https://deno.land/std@0.61.0/testing/asserts.ts";
+export { dirname } from "https://deno.land/std@v0.61.0/path/mod.ts";
+export { createHttpError } from "https://deno.land/x/oak@v6.0.1/httpError.ts";
 export {
   Context,
   HttpError,
   Middleware,
   RouterContext,
   RouterMiddleware,
-} from "https://deno.land/x/oak@v4.0.0/mod.ts";
-export { ErrorStatus } from "https://deno.land/x/oak@v4.0.0/types.ts";
+  Status,
+} from "https://deno.land/x/oak@v6.0.1/mod.ts";

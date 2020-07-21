@@ -1,4 +1,4 @@
-import { assertStrContains } from "../deps.ts";
+import { assertStringContains } from "../deps.ts";
 import { logger } from "../mod.ts";
 const tests = [
   {
@@ -13,7 +13,7 @@ const tests = [
       const content = await Deno.readTextFile(fileName);
       const contentArr = content.split("\n");
 
-      assertStrContains(contentArr[contentArr.length - 2], "test");
+      assertStringContains(contentArr[contentArr.length - 2], "test");
     },
   },
   {
@@ -28,7 +28,7 @@ const tests = [
       const content = await Deno.readTextFile(fileName);
       const contentArr = content.split("\n");
 
-      assertStrContains(contentArr[contentArr.length - 2], "test");
+      assertStringContains(contentArr[contentArr.length - 2], "test");
     },
   },
   {
@@ -49,7 +49,7 @@ const tests = [
       const content = await Deno.readTextFile(fileName);
       const contentArr = content.split("\n");
 
-      assertStrContains(contentArr[contentArr.length - 2], "foo");
+      assertStringContains(contentArr[contentArr.length - 2], "foo");
     },
   },
 ];
